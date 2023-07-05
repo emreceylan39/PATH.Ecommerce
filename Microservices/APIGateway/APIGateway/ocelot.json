@@ -1,0 +1,66 @@
+{
+  "Routes": [
+    //Login.API
+    {
+      "DownstreamPathTemplate": "/api/Login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 2000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Login",
+      "UpstreamHttpMethod": [ "Post" ]
+
+    },
+    //Catalog.API
+    {
+      "DownstreamPathTemplate": "/api/categories/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3000
+        }
+      ],
+
+      "UpstreamPathTemplate": "/api/categories/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ]
+
+    },
+    //Cart.API
+    {
+      "DownstreamPathTemplate": "/api/carts/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 4000
+        }
+      ],
+
+      "UpstreamPathTemplate": "/api/carts/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ]
+
+    },
+    //Order.API
+    {
+      "DownstreamPathTemplate": "/api/order/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ],
+
+      "UpstreamPathTemplate": "/api/orders/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ]
+
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:1000"
+  }
+}
